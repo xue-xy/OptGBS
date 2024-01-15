@@ -1,26 +1,39 @@
-# SigBaB
-Branch and Bound for Sigmoid-like Neural Network Verification
+# OptGBS
+Optimal Solution Guided Branching Strategy for Neural Network Branch and Bound Verification
 
-SigBaB is a branch and bound verifier for neural networks with sigmoid-like activation functions.
+OptGBS is a branching strategy in the branch and bound neural network verification. 
+This branching strategy is consisted of improvement estimation, out-of-bound compensation and score truncation. The improvements of the sub-problem produced by branching are estimated with the optimal solution of the parent problem.
+
 
 ## User Manmul
 ### Installation
 First clone this repository via git as follows:
 ```bash
-git clone https://github.com/xue-xy/SigBaB.git
-cd kProp
+git clone https://github.com/xue-xy/OptGBS.git
+cd OptGBS
 ```
 Then install the python dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 ### Usage
+
+#### ERAN Benchmark
 ```bash
-python run.py --model <model name> --eps <radius> --bab <bab> --tlimit <time> --batch_size <batch> --device <device>
+python run.py --model <model name> --eps <radius> --tlimit <time> --batch_size <batch> --device <device>
 ```
 + `<model>`: the model you want to check.
 + `<eps>`: radius, float between 0 and 1.
-+ `<bab>`: whether to use branch and bound, True or False.
++ `<tlimit>`: time limit for each property in seconds.
++ `<batch>`: batch size.
++ `<device>`: device to run the tool, cpu or cuda:0.
+
+
+#### OVAL Benchmark
+```bash
+python oval_run.py --model <model name> --tlimit <time> --batch_size <batch> --device <device>
+```
++ `<model>`: the model you want to check.
 + `<tlimit>`: time limit for each property in seconds.
 + `<batch>`: batch size.
 + `<device>`: device to run the tool, cpu or cuda:0.
