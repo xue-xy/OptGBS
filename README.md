@@ -20,8 +20,9 @@ pip install -r requirements.txt
 
 #### ERAN Benchmark
 ```bash
-python run.py --model <model name> --eps <radius> --tlimit <time> --batch_size <batch> --device <device>
+python run.py --branch <branching strategy> --model <model name> --eps <radius> --tlimit <time> --batch_size <batch> --device <device>
 ```
++ `<branch>`: branching strategy, choice among 'optgbs', 'babsr', 'fsb', 'rand'.
 + `<model>`: the model you want to check.
 + `<eps>`: radius, float between 0 and 1.
 + `<tlimit>`: time limit for each property in seconds.
@@ -31,8 +32,9 @@ python run.py --model <model name> --eps <radius> --tlimit <time> --batch_size <
 
 #### OVAL Benchmark
 ```bash
-python oval_run.py --model <model name> --tlimit <time> --batch_size <batch> --device <device>
+python oval_run.py --branch <branching strategy> --model <model name> --tlimit <time> --batch_size <batch> --device <device>
 ```
++ `<branch>`: branching strategy, choice among 'optgbs', 'babsr', 'fsb', 'rand'.
 + `<model>`: the model you want to check.
 + `<tlimit>`: time limit for each property in seconds.
 + `<batch>`: batch size.
